@@ -22,6 +22,12 @@ Run the following command to format the source code and organize the imports as 
 mvn process-sources
 ```
 
+Run the following command to update files with the license header
+```
+./mvnw license:check
+```
+
+
 ## How this project was created
 
 
@@ -43,6 +49,12 @@ An open-source project bootstrapped using a mix of some initialization tools:
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.3&packaging=jar&jvmVersion=17&groupId=io.github.cordin&artifactId=spring-boot-clickhouse-howto&name=spring-boot-clickhouse-howto&description=How%20to%20integrate%20ClickHosue%20in%20a%20Spring%20Boot%20app&packageName=io.github.cordin.sbch&dependencies=lombok,web,jdbc
 
 This code base is available under the Apache License, version 2.
+
+* Add clickhouse JDBC to maven
+
+https://github.com/ClickHouse/clickhouse-jdbc
+
+* Add datasource config to application.yml
 
 ## Reference Documentation
 

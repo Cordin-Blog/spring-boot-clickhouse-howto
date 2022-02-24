@@ -14,12 +14,3 @@
 #  limitations under the License.
 #
 
-spring:
-  application:
-    name: Spring boot with ClickHouse PoC
-  datasource:
-    # Fully qualified name of the Clickhouse JDBC driver
-    driver-class-name: "com.clickhouse.jdbc.ClickHouseDriver"
-    # Clickhouse database URL
-    url: "jdbc:clickhouse://localhost:8123/"
-
