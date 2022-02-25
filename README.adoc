@@ -56,6 +56,11 @@ https://github.com/ClickHouse/clickhouse-jdbc
 
 * Add datasource config to application.yml
 
+* Add testcontainers & junit 5 to pom.xml
+https://www.testcontainers.org/quickstart/junit_5_quickstart/
+
+
+
 ## Reference Documentation
 
 For further reference, please consider the following sections:
