@@ -56,9 +56,26 @@ https://github.com/ClickHouse/clickhouse-jdbc
 
 * Add datasource config to application.yml
 
+* Test it using docker:
+
+docker run -d --name menudb -p 9000:9000 -p 8123:8123 --ulimit nofile=262144:262144 yandex/clickhouse-server
+
+* Get data from https://clickhouse.com/docs/en/getting-started/example-datasets/menus/, create schema and import data following instructions on the page.
+
+clickhouse-client --multiline --multiquery --queries-file src/test/resources/schema-clickhouse.sql
+
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --query "INSERT INTO dish FORMAT CSVWithNames" < Dish.csv
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --query "INSERT INTO menu FORMAT CSVWithNames" < Menu.csv
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --query "INSERT INTO menu_page FORMAT CSVWithNames" < MenuPage.csv
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --date_time_input_format best_effort --query "INSERT INTO menu_item FORMAT CSVWithNames" < MenuItem.csv
+
+
 * Add testcontainers & junit 5 to pom.xml
 https://www.testcontainers.org/quickstart/junit_5_quickstart/
 
+* Define spring.sql.init props in app-test.yml
+
+* Create schema-clickhouse.sql using sample dataset: https://clickhouse.com/docs/en/getting-started/example-datasets/menus/
 
 
 ## Reference Documentation
