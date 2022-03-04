@@ -18,6 +18,10 @@ package io.github.cordin.sbch;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * App launcher.
+ * @author Cèsar Ordiñana
+ */
 @SpringBootApplication
 public class SpringBootClickhouseHowtoApplication {
 

@@ -69,6 +69,10 @@ clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_defa
 clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --query "INSERT INTO menu_page FORMAT CSVWithNames" < MenuPage.csv
 clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --date_time_input_format best_effort --query "INSERT INTO menu_item FORMAT CSVWithNames" < MenuItem.csv
 
+* Create repository and controller classes
+
+* Test http://localhost:8080/avgdishprice
+
 
 * Add testcontainers & junit 5 to pom.xml
 https://www.testcontainers.org/quickstart/junit_5_quickstart/
