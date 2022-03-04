@@ -23,8 +23,9 @@ mvn process-sources
 ```
 
 Run the following command to update files with the license header
+
 ```
-./mvnw license:check
+./mvnw license:format
 ```
 
 
