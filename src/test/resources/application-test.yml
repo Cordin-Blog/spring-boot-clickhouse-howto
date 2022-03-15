@@ -14,3 +14,14 @@
 #  limitations under the License.
 #
 
+spring:
+  sql:
+    init:
+      # Locations of the data (DML) scripts to apply to the database
+      # data-locations:
+      # Mode to apply when determining whether initialization should be performed.
+      mode: "always"
+      # Platform to use in the default schema or data script locations, schema-${platform}.sql and data-${platform}.sql.
+      platform: "clickhouse"
+      # Locations of the schema (DDL) scripts to apply to the database.
+      # schema-locations: "classpath:sql/schema-clickhouse.sql"
