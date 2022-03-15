@@ -1,0 +1,100 @@
+# Blog post and demo code about integrating ClickHouse in a Spring boot project
+
+## Building
+
+Run the following command to build this project:
+
+```
+mvn clean verify
+```
+
+Pass the `-Dquick` option to skip all non-essential plug-ins and create the output artifact as quickly as possible:
+
+```
+mvn clean verify -Dquick
+```
+
+Run the following command to format the source code and organize the imports as per the project's conventions:
+
+```
+mvn process-sources
+```
+
+Run the following command to update files with the license header
+
+```
+./mvnw license:format
+```
+
+
+## How this project was created
+
+
+An open-source project bootstrapped using a mix of some initialization tools:
+
+* The [ModiTect OSS Quickstart](https://github.com/moditect/oss-quickstart) archetype, with:
+
+ mvn archetype:generate -B \
+   -DarchetypeGroupId=org.moditect.ossquickstart \
+   -DarchetypeArtifactId=oss-quickstart-simple-archetype \
+   -DarchetypeVersion=1.0.0.Alpha1 \
+   -DgroupId=io.github.cordin \
+   -DartifactId=spring-boot-clickhouse-howto \
+   -Dversion=1.0.0-SNAPSHOT
+
+
+* start.spring.io
+
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.3&packaging=jar&jvmVersion=17&groupId=io.github.cordin&artifactId=spring-boot-clickhouse-howto&name=spring-boot-clickhouse-howto&description=How%20to%20integrate%20ClickHosue%20in%20a%20Spring%20Boot%20app&packageName=io.github.cordin.sbch&dependencies=lombok,web,jdbc
+
+This code base is available under the Apache License, version 2.
+
+* Add clickhouse JDBC to maven
+
+https://github.com/ClickHouse/clickhouse-jdbc
+
+* Add datasource config to application.yml
+
+* Test it using docker:
+
+docker run -d --name menudb -p 9000:9000 -p 8123:8123 --ulimit nofile=262144:262144 yandex/clickhouse-server
+
+* Get data from https://clickhouse.com/docs/en/getting-started/example-datasets/menus/, create schema and import data following instructions on the page.
+
+clickhouse-client --multiline --multiquery --queries-file src/test/resources/schema-clickhouse.sql
+
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --query "INSERT INTO dish FORMAT CSVWithNames" < Dish.csv
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --query "INSERT INTO menu FORMAT CSVWithNames" < Menu.csv
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --query "INSERT INTO menu_page FORMAT CSVWithNames" < MenuPage.csv
+clickhouse-client --format_csv_allow_single_quotes 0 --input_format_null_as_default 0 --date_time_input_format best_effort --query "INSERT INTO menu_item FORMAT CSVWithNames" < MenuItem.csv
+
+
+clickhouse-client --multiline --multiquery --queries-file src/test/resources/schema-clickhouse-denormalize.sql
+
+* Create repository and controller classes
+
+* Test http://localhost:8080/avgdishprice
+
+* Add testcontainers & junit 5 to pom.xml
+https://www.testcontainers.org/quickstart/junit_5_quickstart/
+
+* Define spring.sql.init props in app-test.yml
+
+* Create schema-clickhouse.sql using sample dataset: https://clickhouse.com/docs/en/getting-started/example-datasets/menus/
+
+* Export small dataset sample for testing:
+
+
+
+
+## Reference Documentation
+
+For further reference, please consider the following sections:
+ 
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.3/maven-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.3/maven-plugin/reference/html/#build-image)
+* [Spring Web](https://docs.spring.io/spring-boot/docs/2.6.3/reference/htmlsingle/#boot-features-developing-web-applications)
+* [JDBC API](https://docs.spring.io/spring-boot/docs/2.6.3/reference/htmlsingle/#boot-features-sql)
+
+
