@@ -1,4 +1,6 @@
 name: spring-boot-clickhouse-howto
 title: How to integrate a Spring Boot app with a ClickHouse database
 version: 1.0
+nav: 
+- modules/ROOT/nav.adoc
 
