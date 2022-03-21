@@ -1,4 +1,4 @@
 name: spring-boot-clickhouse-howto
-version: '1.0'
 title: How to integrate a Spring Boot app with a ClickHouse database
+version: 1.0
 
