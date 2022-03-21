@@ -1,6 +1,7 @@
-# Blog post and demo code about integrating ClickHouse in a Spring boot project
+= Blog post and demo code about integrating ClickHouse in a Spring boot projecta
+:navtitle: Spring Boot and Clickhouse Howto
 
-## Building
+== Building
 
 Run the following command to build this project:
 
@@ -27,7 +28,7 @@ Run the following command to update files with the license header
 ```
 
 
-## How this project was created
+== How this project was created
 
 
 An open-source project bootstrapped using a mix of some initialization tools:
@@ -87,7 +88,7 @@ https://www.testcontainers.org/quickstart/junit_5_quickstart/
 
 
 
-## Reference Documentation
+== Reference Documentation
 
 For further reference, please consider the following sections:
  
