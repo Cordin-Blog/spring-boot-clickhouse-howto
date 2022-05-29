@@ -7,25 +7,37 @@ Blog post and demo code about integrating ClickHouse in a Spring boot project
 Run the following command to build this project:
 
 ```
-mvn clean verify
+./mvnw clean verify
 ```
 
 Pass the `-Dquick` option to skip all non-essential plug-ins and create the output artifact as quickly as possible:
 
 ```
-mvn clean verify -Dquick
+./mvnw clean verify -Dquick
 ```
 
 Run the following command to format the source code and organize the imports as per the project's conventions:
 
 ```
-mvn process-sources
+./mvnw process-sources
 ```
 
 Run the following command to update files with the license header
 
 ```
 ./mvnw license:format
+```
+
+Checking for updates of dependencies:
+
+```
+./mvnw versions:display-property-updates
+```
+
+Checking for updates of maven plugins:
+
+```
+./mvnw versions:display-plugin-updates
 ```
 
 
@@ -36,7 +48,7 @@ An open-source project bootstrapped using a mix of some initialization tools:
 
 * The [ModiTect OSS Quickstart](https://github.com/moditect/oss-quickstart) archetype, with:
 
- mvn archetype:generate -B \
+ ./mvnw archetype:generate -B \
    -DarchetypeGroupId=org.moditect.ossquickstart \
    -DarchetypeArtifactId=oss-quickstart-simple-archetype \
    -DarchetypeVersion=1.0.0.Alpha1 \
