@@ -284,7 +284,7 @@
                       <phases>clean,deploy,site</phases>
                     </requirePluginVersions>
                     <requireMavenVersion>
-                      <version>3.8.4</version>
+                      <version>3.8.5</version>
                     </requireMavenVersion>
                   </rules>
                 </configuration>
