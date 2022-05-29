@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Provides historical data on the menus.
- * 
+ *
  * <p>
  * It expects to access a ClickHouse database, with a <em>menu_item_denorm</em> table having the
  * schema defined in the <em>schema-clickhouse-denormalize.sql</em> file, and having data imported
@@ -57,7 +57,7 @@ public class MenuRepository {
 
     /**
      * Provides the Averaged historical prices of dishes by decade.
-     * 
+     *
      * @see https://clickhouse.com/docs/en/getting-started/example-datasets/menus/#query-averaged-historical-prices
      * @return the average dish price by decade
      */
